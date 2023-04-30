@@ -61,6 +61,7 @@
             // 
             // timeLabel
             // 
+            this.timeLabel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.timeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.timeLabel.Location = new System.Drawing.Point(269, 9);
@@ -132,6 +133,9 @@
             this.sum.Name = "sum";
             this.sum.Size = new System.Drawing.Size(100, 28);
             this.sum.TabIndex = 6;
+            this.sum.ValueChanged += new System.EventHandler(this.sum_Correct);
+            this.sum.Click += new System.EventHandler(this.answer_Enter);
+            this.sum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // quotient
             // 
@@ -141,6 +145,9 @@
             this.quotient.Name = "quotient";
             this.quotient.Size = new System.Drawing.Size(100, 28);
             this.quotient.TabIndex = 11;
+            this.quotient.ValueChanged += new System.EventHandler(this.quotient_Correct);
+            this.quotient.Click += new System.EventHandler(this.answer_Enter);
+            this.quotient.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label3
             // 
@@ -194,6 +201,9 @@
             this.product.Name = "product";
             this.product.Size = new System.Drawing.Size(100, 28);
             this.product.TabIndex = 16;
+            this.product.ValueChanged += new System.EventHandler(this.product_Correct);
+            this.product.Click += new System.EventHandler(this.answer_Enter);
+            this.product.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label8
             // 
@@ -247,6 +257,9 @@
             this.difference.Name = "difference";
             this.difference.Size = new System.Drawing.Size(100, 28);
             this.difference.TabIndex = 21;
+            this.difference.ValueChanged += new System.EventHandler(this.minus_Correct);
+            this.difference.Click += new System.EventHandler(this.answer_Enter);
+            this.difference.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label12
             // 

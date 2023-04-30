@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -80,7 +81,15 @@ namespace MathQuiz
                 && (minuend - subtrahend == difference.Value)
                 && (multiplicand * multiplier == product.Value)
                 && (dividend / divisor == quotient.Value))
+            {
+                timeLabel.BackColor = Color.WhiteSmoke;
                 return true;
+            }
+            else if (timeLeft == 6)
+            {
+                timeLabel.BackColor = Color.Red;
+                return false;
+            }
             else
                 return false;
         }
@@ -103,6 +112,7 @@ namespace MathQuiz
                 // got the answer right. Stop the timer  
                 // and show a MessageBox.
                 timer1.Stop();
+                timeLabel.BackColor = Color.WhiteSmoke;
                 MessageBox.Show("You got all the answers right!",
                                 "Congratulations!");
                 startButton.Enabled = true;
@@ -121,6 +131,7 @@ namespace MathQuiz
                 // If the user ran out of time, stop the timer, show
                 // a MessageBox, and fill in the answers.
                 timer1.Stop();
+                timeLabel.BackColor = Color.WhiteSmoke;
                 timeLabel.Text = "Time's up!";
                 MessageBox.Show("You didn't finish in time.", "Sorry!");
                 sum.Value = addend1 + addend2;
@@ -129,6 +140,40 @@ namespace MathQuiz
                 quotient.Value = dividend / divisor;
                 startButton.Enabled = true;
             }
+        }
+
+        private void answer_Enter(object sender, EventArgs e)
+        {
+            // Select the whole answer in the NumericUpDown control.
+            NumericUpDown answerBox = sender as NumericUpDown;
+
+            if (answerBox != null)
+            {
+                int lengthOfAnswer = answerBox.Value.ToString().Length;
+                answerBox.Select(0, lengthOfAnswer);
+            }
+        }
+
+        private void sum_Correct(object sender, EventArgs e)
+        {
+            if (addend1 + addend2 == sum.Value)
+                sum.BackColor = Color.LightGreen;
+        }
+
+        private void minus_Correct(object sender, EventArgs e)
+        {
+            if (minuend - subtrahend == difference.Value)
+                difference.BackColor = Color.LightGreen;
+        }
+        private void product_Correct(object sender, EventArgs e)
+        {
+            if (multiplicand * multiplier == product.Value)
+                product.BackColor = Color.LightGreen;
+        }
+        private void quotient_Correct(object sender, EventArgs e)
+        {
+            if (dividend / divisor == quotient.Value)
+                quotient.BackColor = Color.LightGreen;
         }
     }
 }
