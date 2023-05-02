@@ -40,6 +40,11 @@ namespace MathQuiz
         int timeLeft;
         public void StartTheQuiz()
         {
+            sum.BackColor = Color.White;
+            difference.BackColor = Color.White;
+            product.BackColor = Color.White;
+            quotient.BackColor = Color.White;
+
             // Fill in the addition problem
             addend1 = randomizer.Next(51);
             addend2 = randomizer.Next(51);
@@ -96,6 +101,7 @@ namespace MathQuiz
         public Form1()
         {
             InitializeComponent();
+            label5.Text = $"Date: {DateTime.Today.ToString("dd MMMM yyyy")}";
         }
 
         private void startButton_Click(object sender, EventArgs e)
